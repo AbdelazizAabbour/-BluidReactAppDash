@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 
 export default function Profile() {
@@ -9,7 +10,6 @@ export default function Profile() {
 
   const [saved, setSaved] = useState(false);
 
-  // Charger les données depuis localStorage au début
   useEffect(() => {
     const stored = localStorage.getItem("userProfile");
     if (stored) {
@@ -17,17 +17,14 @@ export default function Profile() {
     }
   }, []);
 
-  // Gestion des inputs contrôlés
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
   };
 
-  // Sauvegarde du profil
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("userProfile", JSON.stringify(formData));
@@ -35,51 +32,122 @@ export default function Profile() {
     setTimeout(() => setSaved(false), 2000);
   };
 
+ 
+  const styles = {
+    container: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100vh",
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      padding: "1rem"
+    },
+    card: {
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      borderRadius: "12px",
+      boxShadow: "0 8px 25px rgba(0,0,0,0.2)",
+      padding: "2rem",
+      width: "100%",
+      maxWidth: "920px",
+      boxSizing: "border-box"
+    },
+    title: {
+      textAlign: "center",
+      marginBottom: "1.5rem",
+      color: "#ffff",
+      fontSize: "1.8rem",
+      fontWeight: 600
+    },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "1rem"
+    },
+    label: {
+      fontWeight: 600,
+      color: "#ffff",
+      marginBottom: "0.25rem"
+    },
+    input: {
+      padding: "0.75rem 1rem",
+      borderRadius: "8px",
+      border: "1px solid #ccc",
+      fontSize: "1rem",
+      transition: "border-color 0.3s ease",
+      outline: "none"
+    },
+    inputFocus: {
+      borderColor: "#667eea"
+    },
+    button: {
+      marginTop: "1rem",
+      padding: "0.75rem",
+      borderRadius: "8px",
+      border: "none",
+      background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%",
+      color: "#fff",
+      fontSize: "1rem",
+      fontWeight: 600,
+      cursor: "pointer",
+      transition: "background-color 0.3s ease"
+    },
+    buttonHover: {
+      backgroundColor: "#5a67d8"
+    },
+    success: {
+      textAlign: "center",
+      color: "#38a169",
+      fontWeight: 600,
+      marginBottom: "1rem"
+    }
+  };
+
   return (
-    <div className="min-h-screen p-5 flex justify-center items-center bg-gray-100">
-      <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-md">
-
-        <h2 className="text-2xl font-bold mb-4">Profil utilisateur</h2>
-
-        {saved && (
-          <p className="mb-4 p-2 bg-green-100 text-green-800 rounded">
-            ✔ Informations enregistrées !
-          </p>
-        )}
-
-        <form onSubmit={handleSubmit}>
-          <label className="block font-semibold mb-1">Nom complet :</label>
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h2 style={styles.title}>Profil user</h2>
+        {saved && <p style={styles.success}>Informations enregistrées !</p>}
+        <form style={styles.form} onSubmit={handleSubmit}>
+          <label style={styles.label}>Name :</label>
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-2 border rounded mb-3"
             required
+            style={styles.input}
+            onFocus={(e) => (e.target.style.borderColor = styles.inputFocus.borderColor)}
+            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
 
-          <label className="block font-semibold mb-1">Email :</label>
+          <label style={styles.label}>Email :</label>
           <input
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 border rounded mb-3"
             required
+            style={styles.input}
+            onFocus={(e) => (e.target.style.borderColor = styles.inputFocus.borderColor)}
+            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
 
-          <label className="block font-semibold mb-1">Téléphone :</label>
+          <label style={styles.label}>Phone Number :</label>
           <input
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full p-2 border rounded mb-3"
+            style={styles.input}
+            onFocus={(e) => (e.target.style.borderColor = styles.inputFocus.borderColor)}
+            onBlur={(e) => (e.target.style.borderColor = "#ccc")}
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded-lg mt-2"
+            style={styles.button}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
           >
-            Enregistrer
+            Save
           </button>
         </form>
       </div>

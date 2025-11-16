@@ -1,7 +1,6 @@
 import React from 'react'
-import 
- {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
- from 'react-icons/bs'
+import {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify} from 'react-icons/bs'
+// import Mode from './Mode'
 
 function Header({OpenSidebar}) {
   return (
@@ -12,6 +11,9 @@ function Header({OpenSidebar}) {
         <div className='header-left'>
             <BsSearch  className='icon'/>
         </div>
+        {/* <div className='header-left'>
+        <Mode />
+        </div> */}
         <div className='header-right'>
             <BsFillBellFill className='icon'/>
             <BsFillEnvelopeFill className='icon'/>

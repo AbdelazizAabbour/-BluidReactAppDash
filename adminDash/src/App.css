@@ -1,7 +1,64 @@
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
+
 body.dark {
   background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0) !important;
 }
+body.dark .main-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark .sidebar {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-title {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-brand {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-list {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-list-item {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-list-item:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark.sidebar-list-item {
+  color: #000000;
+}
+body.dark #sidebar {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark .icon.close_icon {
+  color: #000000;
+  font-weight: bold;
+}
+
+body.dark .sidebar-list-item > a{
+  color: #000000;
+}
+
+body.dark .btnaziz{
+  color: #000000;
+  font-weight: normal;
+}
+
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
+/* hade l code li be9a l fo9e kamel deyal dark ou  white mode okey  */
 
 body {
   margin: 0;
@@ -171,6 +228,15 @@ body {
   margin-top: 60px;
   height: 300px;
 }
+.btnaziz{
+  background-color: transparent;
+  border: none;
+  color: #9e9ea4;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold ;
+  font-size: 17px  ;
+}
+
 
 /* End Main  */
 

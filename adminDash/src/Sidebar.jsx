@@ -1,9 +1,7 @@
 import React from 'react'
-import {
-BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill,
-BsListCheck, BsMenuButtonWideFill, BsFillGearFill
-}
-    from 'react-icons/bs'
+import {BsCart3, BsGrid1X2Fill, BsPeopleFill, BsFillGearFill}from 'react-icons/bs'
+import Mode from './Mode'
+
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
     return (
@@ -22,17 +20,20 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
                     </a>
                 </li>
                 <li className='sidebar-list-item'>
-                    <a href="./profile">
+                    <a href="/profile">
                         <BsPeopleFill className='icon' /> Profile
                     </a>
                 </li>
                 <li className='sidebar-list-item'>
-                    <a href="../setting">
+                    <a href="/setting">
                         <BsFillGearFill className='icon' /> Setting
                     </a>
                 </li>
-                
+                <li className='sidebar-list-item'>
+                    <Mode />
+                </li>
             </ul>
+          
         </aside>
     )
 }
